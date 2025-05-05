@@ -70,4 +70,31 @@ console.log(without_o);
 
 console.log("----------------------------------------------------------------------");
 
+let students_with_grades = [
+    ["Ali", [85, 90, 78]],
+    ["Sara", [70, 88, 92]],
+    ["Ahmed", [60, 75, 80]],
+    ["Lana", [90, 95, 93]],
+    ["Omar", [50, 60, 65]],
+    ["Noor", [88, 85, 91]]
+];
 
+students_with_grades.forEach(function (student) {
+    let grades = student[1];
+    let average = grades.reduce(function (sum, grade) {
+        return sum + grade;
+    }, 0) / grades.length;
+    student.push(average);
+});
+
+console.log(students_with_grades);
+
+console.log("----------------------------------------------------------------------");
+
+let high_achievers = students_with_grades.filter(function (student) {
+    return student[2] > 80;
+}).map(function (student) {
+    return student[0];
+});
+
+console.log(high_achievers);
